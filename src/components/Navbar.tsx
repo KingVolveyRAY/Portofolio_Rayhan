@@ -23,9 +23,9 @@ export function Navbar({ lang }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -51,7 +51,6 @@ export function Navbar({ lang }: NavbarProps) {
 
   const handleLanguageSwitch = () => {
     const targetLang: Language = lang === 'id' ? 'en' : 'id';
-    // Preserve sub-path when switching
     let newPath = pathname.replace(`/${lang}`, `/${targetLang}`);
     if (newPath === pathname) {
       newPath = `/${targetLang}`;
@@ -66,33 +65,38 @@ export function Navbar({ lang }: NavbarProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2">
-        <nav
-          className={`flex items-center justify-between px-4 sm:px-6 py-3 rounded-2xl transition-all duration-300 ${
-            scrolled ? 'glass-nav shadow-lg' : 'glass-panel'
-          }`}
-          aria-label="Main Navigation"
-        >
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out flex justify-center ${
+        scrolled ? 'pt-3 sm:pt-4 px-3 sm:px-6' : 'pt-4 sm:pt-5 px-4 sm:px-8'
+      }`}
+    >
+      <div
+        className={`w-full transition-all duration-500 ease-out ${
+          scrolled
+            ? 'max-w-5xl floating-nav rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 shadow-2xl'
+            : 'max-w-7xl glass-panel rounded-2xl px-4 sm:px-6 py-3.5'
+        }`}
+      >
+        <nav className="flex items-center justify-between" aria-label="Main Navigation">
           {/* Logo / Brand */}
           <Link
             href={`/${lang}`}
             className="flex items-center gap-2.5 font-bold text-base sm:text-lg tracking-tight group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg p-1"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform shrink-0">
               <Cpu className="w-4 h-4" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold leading-none text-slate-100 dark:text-slate-100 light:text-slate-900">
+              <span className="font-extrabold leading-none text-slate-900 dark:text-slate-100">
                 Rayhan<span className="text-orange-500">.</span>
               </span>
-              <span className="text-[10px] text-cyan-400 font-mono tracking-widest uppercase">
+              <span className="text-[10px] text-cyan-600 dark:text-cyan-400 font-mono tracking-widest uppercase">
                 IoT Dev
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-1 lg:gap-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -102,8 +106,8 @@ export function Navbar({ lang }: NavbarProps) {
                   href={link.href}
                   className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                     active
-                      ? 'bg-orange-500/15 text-orange-400 font-semibold border border-orange-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/40'
+                      ? 'bg-orange-500/15 text-orange-600 dark:text-orange-400 font-semibold border border-orange-500/30'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/40'
                   }`}
                 >
                   {link.label}
@@ -112,30 +116,30 @@ export function Navbar({ lang }: NavbarProps) {
             })}
           </div>
 
-          {/* Controls: Language, Theme, CV, and Mobile Toggle */}
+          {/* Controls: Language, Theme, CV CTA, Mobile Toggle */}
           <div className="flex items-center gap-2">
             {/* Language Switcher */}
             <button
               onClick={handleLanguageSwitch}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/40 hover:bg-slate-700/50 border border-slate-700/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-slate-800/40 hover:bg-slate-300/60 dark:hover:bg-slate-700/50 border border-slate-300 dark:border-slate-700/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
               aria-label={`Switch language to ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
               title={`Ganti ke ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
             >
-              <Globe className="w-3.5 h-3.5 text-cyan-400" />
+              <Globe className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>{lang.toUpperCase()}</span>
             </button>
 
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl text-slate-300 hover:text-white bg-slate-800/40 hover:bg-slate-700/50 border border-slate-700/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+              className="p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-slate-800/40 hover:bg-slate-300/60 dark:hover:bg-slate-700/50 border border-slate-300 dark:border-slate-700/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              title={`Mode ${theme === 'dark' ? 'Terang' : 'Gelap'}`}
+              title={`Ubah ke Mode ${theme === 'dark' ? 'Terang' : 'Gelap'}`}
             >
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
               ) : (
-                <Moon className="w-4 h-4 text-cyan-400" />
+                <Moon className="w-4 h-4 text-cyan-600" />
               )}
             </button>
 
@@ -151,7 +155,7 @@ export function Navbar({ lang }: NavbarProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-slate-300 hover:text-white bg-slate-800/40 border border-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+              className="md:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-slate-800/40 border border-slate-300 dark:border-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -162,7 +166,7 @@ export function Navbar({ lang }: NavbarProps) {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-2 p-4 rounded-2xl glass-panel border border-slate-700/50 flex flex-col gap-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden mt-3 p-4 rounded-2xl glass-panel border border-slate-300 dark:border-slate-700/50 flex flex-col gap-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -172,8 +176,8 @@ export function Navbar({ lang }: NavbarProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     active
-                      ? 'bg-orange-500/20 text-orange-400 font-semibold border border-orange-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/40'
+                      ? 'bg-orange-500/20 text-orange-600 dark:text-orange-400 font-semibold border border-orange-500/30'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/40'
                   }`}
                 >
                   {link.label}
@@ -181,7 +185,7 @@ export function Navbar({ lang }: NavbarProps) {
               );
             })}
 
-            <div className="pt-2 border-t border-slate-700/50 flex flex-col gap-2">
+            <div className="pt-2 border-t border-slate-300 dark:border-slate-700/50 flex flex-col gap-2">
               <Link
                 href={`/${lang}/cv`}
                 onClick={() => setMobileMenuOpen(false)}
