@@ -252,76 +252,80 @@ export default async function HomePage({ params }: HomePageProps) {
       </ScrollReveal>
 
       {/* Services Preview (FR-07) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
-            {validLang === 'id' ? 'Layanan Freelance & Kemitraan' : 'Freelance Services & Partnerships'}
-          </h2>
-          <p className="text-sm text-slate-400 leading-relaxed">
-            {validLang === 'id'
-              ? 'Tiga layanan terfokus yang siap dieksekusi dengan standar kualitas rekayasa teruji.'
-              : 'Three targeted offerings ready for deployment with engineering rigor.'}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="glass-panel p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-all">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
-                  {service.id === 'iot-dashboard' ? <Cpu className="w-5 h-5" /> : service.id === 'web-backend' ? <Server className="w-5 h-5" /> : <GraduationCap className="w-5 h-5" />}
-                </div>
-                <h3 className="text-base font-bold text-slate-100">{service.title[validLang]}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{service.tagline[validLang]}</p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-800/80">
-                <Link
-                  href={`/${validLang}/layanan`}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
-                >
-                  <span>{validLang === 'id' ? 'Pelajari Rincian & Alur Kerja' : 'Explore Deliverables & Workflow'}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Call to Action Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-orange-500/30 text-center space-y-6 relative overflow-hidden bg-gradient-to-b from-orange-500/10 to-transparent">
-          <div className="max-w-xl mx-auto space-y-3">
+      <ScrollReveal>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
-              {validLang === 'id' ? 'Siap Membangun Sistem Bersama?' : 'Ready to Build Reliable Systems Together?'}
+              {validLang === 'id' ? 'Layanan Freelance & Kemitraan' : 'Freelance Services & Partnerships'}
             </h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed">
               {validLang === 'id'
-                ? 'Terbuka untuk peluang magang sebagai IoT Developer / Backend Engineer, serta proyek freelance dan workshop pelatihan robotika.'
-                : 'Open for internship placements in IoT Development and Backend Engineering, as well as freelance projects and robotics workshops.'}
+                ? 'Tiga layanan terfokus yang siap dieksekusi dengan standar kualitas rekayasa teruji.'
+                : 'Three targeted offerings ready for deployment with engineering rigor.'}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href={`/${validLang}/kontak`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white shadow-lg shadow-orange-500/20 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
-            >
-              <Mail className="w-4 h-4" />
-              <span>{validLang === 'id' ? 'Kirim Pesan Diskusi' : 'Start a Discussion'}</span>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <div key={service.id} className="glass-panel p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-all">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                    {service.id === 'iot-dashboard' ? <Cpu className="w-5 h-5" /> : service.id === 'web-backend' ? <Server className="w-5 h-5" /> : <GraduationCap className="w-5 h-5" />}
+                  </div>
+                  <h3 className="text-base font-bold text-slate-100">{service.title[validLang]}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">{service.tagline[validLang]}</p>
+                </div>
 
-            <Link
-              href={`/${validLang}/cv`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
-            >
-              <FileText className="w-4 h-4 text-cyan-400" />
-              <span>{validLang === 'id' ? 'Tinjau Curriculum Vitae' : 'Review Curriculum Vitae'}</span>
-            </Link>
+                <div className="pt-4 border-t border-slate-800/80">
+                  <Link
+                    href={`/${validLang}/layanan`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+                  >
+                    <span>{validLang === 'id' ? 'Pelajari Rincian & Alur Kerja' : 'Explore Deliverables & Workflow'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
+
+      {/* Call to Action Banner */}
+      <ScrollReveal>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-orange-500/30 text-center space-y-6 relative overflow-hidden bg-gradient-to-b from-orange-500/10 to-transparent">
+            <div className="max-w-xl mx-auto space-y-3">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+                {validLang === 'id' ? 'Siap Membangun Sistem Bersama?' : 'Ready to Build Reliable Systems Together?'}
+              </h2>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                {validLang === 'id'
+                  ? 'Terbuka untuk peluang magang sebagai IoT Developer / Backend Engineer, serta proyek freelance dan workshop pelatihan robotika.'
+                  : 'Open for internship placements in IoT Development and Backend Engineering, as well as freelance projects and robotics workshops.'}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href={`/${validLang}/kontak`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white shadow-lg shadow-orange-500/20 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              >
+                <Mail className="w-4 h-4" />
+                <span>{validLang === 'id' ? 'Kirim Pesan Diskusi' : 'Start a Discussion'}</span>
+              </Link>
+
+              <Link
+                href={`/${validLang}/cv`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                <FileText className="w-4 h-4 text-cyan-400" />
+                <span>{validLang === 'id' ? 'Tinjau Curriculum Vitae' : 'Review Curriculum Vitae'}</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }
