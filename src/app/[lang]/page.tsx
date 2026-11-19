@@ -8,6 +8,7 @@ import { skillGroups } from '@/data/skills';
 import { services } from '@/data/services';
 import { ProjectCard } from '@/components/ProjectCard';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { SectionConnector } from '@/components/SectionConnector';
 import { translations } from '@/lib/translations';
 import {
   ArrowRight,
@@ -20,7 +21,8 @@ import {
   Sparkles,
   Activity,
   CheckCircle2,
-  ExternalLink,
+  Wrench,
+  Radio,
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -46,12 +48,12 @@ export default async function HomePage({ params }: HomePageProps) {
     .slice(0, 3);
 
   return (
-    <div className="space-y-24 sm:space-y-32">
-      {/* Hero Section */}
+    <div className="space-y-16 sm:space-y-24">
+      {/* Hero Section with Bi-Directional Entrance Animations */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6">
+          <ScrollReveal animation="fade-right" className="lg:col-span-7 space-y-6">
             {/* Status Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-medium text-slate-200 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -112,10 +114,10 @@ export default async function HomePage({ params }: HomePageProps) {
               <span className="text-slate-600">•</span>
               <div>{tHero.statusLocation[validLang]}</div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Profile Photo & Telemetry Card Column */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <ScrollReveal animation="fade-left" delayMs={150} className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-sm">
               {/* Decorative Glass Backdrop */}
               <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-cyan-500/20 rounded-3xl blur-2xl -z-10" />
@@ -156,75 +158,106 @@ export default async function HomePage({ params }: HomePageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
+      {/* Cyber Circuit Connector: Hero -> Featured Projects */}
+      <SectionConnector
+        nodeNumber="NODE // 01"
+        label={validLang === 'id' ? 'Proyek Unggulan' : 'Featured Projects'}
+        sublabel={validLang === 'id' ? 'Sensor Fisik ke Telemetri Cloud' : 'Physical Sensor to Cloud Telemetry'}
+        icon={Cpu}
+        variant="orange"
+      />
+
       {/* Featured Projects Section (FR-01 & Section 5.2) */}
-      <ScrollReveal>
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
-                <Cpu className="w-3.5 h-3.5" />
-                <span>{validLang === 'id' ? 'Poros IoT Developer' : 'IoT Core Projects'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
-                {tFeatured.title[validLang]}
-              </h2>
-              <p className="text-sm text-slate-400 max-w-xl mt-2 leading-relaxed">
-                {tFeatured.subtitle[validLang]}
-              </p>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal animation="fade-up" className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div>
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>{validLang === 'id' ? 'Poros IoT Developer' : 'IoT Core Projects'}</span>
             </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+              {tFeatured.title[validLang]}
+            </h2>
+            <p className="text-sm text-slate-400 max-w-xl mt-2 leading-relaxed">
+              {tFeatured.subtitle[validLang]}
+            </p>
+          </div>
 
-            <Link
-              href={`/${validLang}/proyek`}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group"
+          <Link
+            href={`/${validLang}/proyek`}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group"
+          >
+            <span>{tFeatured.viewAll[validLang]}</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </ScrollReveal>
+
+        {/* 3 Featured Projects Grid with Cascading Staggered Entrance */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredProjects.map((project, index) => (
+            <ScrollReveal
+              key={project.slug}
+              animation="fade-up"
+              delayMs={index * 150}
+              threshold={0.1}
             >
-              <span>{tFeatured.viewAll[validLang]}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+              <ProjectCard project={project} lang={validLang} />
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
-          {/* 3 Featured Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} lang={validLang} />
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+      {/* Cyber Circuit Connector: Projects -> Architecture & Skills */}
+      <SectionConnector
+        nodeNumber="NODE // 02"
+        label={validLang === 'id' ? 'Arsitektur & Keahlian' : 'Architecture & Skills'}
+        sublabel={validLang === 'id' ? 'Hardware • Backend • Database' : 'Hardware • Backend • Database'}
+        icon={Layers}
+        variant="cyan"
+      />
 
       {/* Skills & Architecture Overview (FR-05) */}
-      <ScrollReveal>
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
-            <div className="max-w-2xl mb-8">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-2">
-                {validLang === 'id' ? 'Keahlian Sistem Dari Sensor ke Dashboard' : 'System Expertise: From Sensor to Dashboard'}
-              </h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {validLang === 'id'
-                  ? 'Kemampuan menyeluruh mencakup perakitan perangkat keras, kalibrasi sensor fisik, transmisi telemetri aman, hingga dasbor antarmuka web modern.'
-                  : 'Comprehensive capability bridging hardware soldering, analog sensor calibration, secure telemetry pipelines, and modern web application interfaces.'}
-              </p>
-            </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
+          <ScrollReveal animation="fade-up" className="max-w-2xl mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-2">
+              {validLang === 'id' ? 'Keahlian Sistem Dari Sensor ke Dashboard' : 'System Expertise: From Sensor to Dashboard'}
+            </h2>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              {validLang === 'id'
+                ? 'Kemampuan menyeluruh mencakup perakitan perangkat keras, kalibrasi sensor fisik, transmisi telemetri aman, hingga dasbor antarmuka web modern.'
+                : 'Comprehensive capability bridging hardware soldering, analog sensor calibration, secure telemetry pipelines, and modern web application interfaces.'}
+            </p>
+          </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skillGroups.slice(0, 3).map((group) => (
-                <div key={group.id} className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
-                      {group.id === 'iot-embedded' ? <Cpu className="w-4 h-4" /> : group.id === 'backend' ? <Server className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
+          {/* Staggered Skill Group Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillGroups.slice(0, 3).map((group, index) => (
+              <ScrollReveal
+                key={group.id}
+                animation="fade-up"
+                delayMs={index * 140}
+                threshold={0.1}
+              >
+                <div className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 h-full flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
+                        {group.id === 'iot-embedded' ? <Cpu className="w-4 h-4" /> : group.id === 'backend' ? <Server className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
+                      </div>
+                      <h3 className="font-bold text-sm text-slate-200">{group.name[validLang]}</h3>
                     </div>
-                    <h3 className="font-bold text-sm text-slate-200">{group.name[validLang]}</h3>
+
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      {group.description[validLang]}
+                    </p>
                   </div>
 
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    {group.description[validLang]}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/60">
                     {group.skills.map((s) => (
                       <span key={s.name} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
                         {s.name}
@@ -232,42 +265,57 @@ export default async function HomePage({ params }: HomePageProps) {
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
-              <span className="text-xs text-slate-400 font-mono">
-                {validLang === 'id' ? 'Setiap keahlian dibuktikan melalui kode di repositori publik' : 'Each capability is verified by code in public repositories'}
-              </span>
-              <Link
-                href={`/${validLang}/tentang`}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
-              >
-                <span>{validLang === 'id' ? 'Lihat Matriks Keahlian Lengkap' : 'View Full Skills Matrix'}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+              </ScrollReveal>
+            ))}
           </div>
-        </section>
-      </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delayMs={300} className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+            <span className="text-xs text-slate-400 font-mono">
+              {validLang === 'id' ? 'Setiap keahlian dibuktikan melalui kode di repositori publik' : 'Each capability is verified by code in public repositories'}
+            </span>
+            <Link
+              href={`/${validLang}/tentang`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+            >
+              <span>{validLang === 'id' ? 'Lihat Matriks Keahlian Lengkap' : 'View Full Skills Matrix'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Cyber Circuit Connector: Architecture -> Freelance & Services */}
+      <SectionConnector
+        nodeNumber="NODE // 03"
+        label={validLang === 'id' ? 'Solusi & Layanan' : 'Solutions & Services'}
+        sublabel={validLang === 'id' ? 'Konsultasi & Implementasi Teruji' : 'Proven Consulting & Implementation'}
+        icon={Server}
+        variant="amber"
+      />
 
       {/* Services Preview (FR-07) */}
-      <ScrollReveal>
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
-              {validLang === 'id' ? 'Layanan Freelance & Kemitraan' : 'Freelance Services & Partnerships'}
-            </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              {validLang === 'id'
-                ? 'Tiga layanan terfokus yang siap dieksekusi dengan standar kualitas rekayasa teruji.'
-                : 'Three targeted offerings ready for deployment with engineering rigor.'}
-            </p>
-          </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+            {validLang === 'id' ? 'Layanan Freelance & Kemitraan' : 'Freelance Services & Partnerships'}
+          </h2>
+          <p className="text-sm text-slate-400 leading-relaxed">
+            {validLang === 'id'
+              ? 'Tiga layanan terfokus yang siap dieksekusi dengan standar kualitas rekayasa teruji.'
+              : 'Three targeted offerings ready for deployment with engineering rigor.'}
+          </p>
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.id} className="glass-panel p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-all">
+        {/* 3 Services Grid with Cascading Stagger */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ScrollReveal
+              key={service.id}
+              animation="fade-up"
+              delayMs={index * 150}
+              threshold={0.1}
+            >
+              <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-all h-full">
                 <div className="space-y-3">
                   <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
                     {service.id === 'iot-dashboard' ? <Cpu className="w-5 h-5" /> : service.id === 'web-backend' ? <Server className="w-5 h-5" /> : <GraduationCap className="w-5 h-5" />}
@@ -286,14 +334,23 @@ export default async function HomePage({ params }: HomePageProps) {
                   </Link>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Cyber Circuit Connector: Services -> Collaboration / CTA */}
+      <SectionConnector
+        nodeNumber="NODE // 04"
+        label={validLang === 'id' ? 'Inisiasi Kolaborasi' : 'Initiate Collaboration'}
+        sublabel={validLang === 'id' ? 'Magang • Freelance • Proyek Robotika' : 'Internship • Freelance • Robotics Projects'}
+        icon={Mail}
+        variant="orange"
+      />
 
       {/* Call to Action Banner */}
-      <ScrollReveal>
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <ScrollReveal animation="scale-up" delayMs={100} threshold={0.15}>
           <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-orange-500/30 text-center space-y-6 relative overflow-hidden bg-gradient-to-b from-orange-500/10 to-transparent">
             <div className="max-w-xl mx-auto space-y-3">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
@@ -324,8 +381,8 @@ export default async function HomePage({ params }: HomePageProps) {
               </Link>
             </div>
           </div>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }
