@@ -21,13 +21,13 @@ html {
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
-    --nav-bg: rgba(9, 13, 22, 0.8);
+    --nav-bg: rgba(9, 13, 22, 0.94);
     --input-bg: rgba(15, 23, 42, 0.85);
   }
 
   html.light {
     --bg-main: #f8fafc;
-    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card: rgba(255, 255, 255, 0.95);
     --bg-card-solid: #ffffff;
     --surface-inner: #f1f5f9;
     --glass-border: rgba(15, 23, 42, 0.12);
@@ -39,7 +39,7 @@ html {
     --text-primary: #0f172a;
     --text-secondary: #334155;
     --text-muted: #475569;
-    --nav-bg: rgba(255, 255, 255, 0.88);
+    --nav-bg: rgba(255, 255, 255, 0.96);
     --input-bg: #ffffff;
   }
 }
