@@ -180,42 +180,49 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </div>
 
           <div className="space-y-6">
-            {workItems.map((item) => (
-              <div key={item.id} className="glass-panel p-6 rounded-2xl space-y-3">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
-                    {item.role[validLang]} <span className="text-orange-600 dark:text-orange-400 font-normal">at {item.institution}</span>
-                  </h3>
-                  <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900/80 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 self-start sm:self-auto">
-                    {item.period[validLang]}
-                  </span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {item.description[validLang]}
-                </p>
-
-                {item.achievements && (
-                  <ul className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800/70">
-                    {item.achievements[validLang].map((ach, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
-                        <span>{ach}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {item.tags && (
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {item.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200/70 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-400">
-                        {tag}
-                      </span>
-                    ))}
+            {workItems.map((item, index) => (
+              <ScrollReveal
+                key={item.id}
+                animation="fade-up"
+                delayMs={index * 120}
+                threshold={0.1}
+              >
+                <div className="glass-panel p-6 rounded-2xl space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
+                      {item.role[validLang]} <span className="text-orange-600 dark:text-orange-400 font-normal">at {item.institution}</span>
+                    </h3>
+                    <span className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900/80 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 self-start sm:self-auto">
+                      {item.period[validLang]}
+                    </span>
                   </div>
-                )}
-              </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {item.description[validLang]}
+                  </p>
+
+                  {item.achievements && (
+                    <ul className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800/70">
+                      {item.achievements[validLang].map((ach, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
+                          <span>{ach}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {item.tags && (
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {item.tags.map((tag) => (
+                        <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200/70 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-400">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
