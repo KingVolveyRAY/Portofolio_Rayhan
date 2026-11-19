@@ -289,7 +289,7 @@ export default async function HomePage({ params }: HomePageProps) {
         nodeNumber="NODE // 03"
         label={validLang === 'id' ? 'Solusi & Layanan' : 'Solutions & Services'}
         sublabel={validLang === 'id' ? 'Konsultasi & Implementasi Teruji' : 'Proven Consulting & Implementation'}
-        icon={Server}
+        iconName="server"
         variant="amber"
       />
 
