@@ -45,13 +45,15 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       </div>
 
       {/* 3 Core Services Grid */}
-      <ScrollReveal>
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-orange-500/40 transition-all group"
-            >
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <ScrollReveal
+            key={service.id}
+            animation="fade-up"
+            delayMs={index * 150}
+            threshold={0.1}
+          >
+            <div className="glass-panel p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-orange-500/40 transition-all group h-full">
               <div className="space-y-5">
                 <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                   {service.id === 'iot-dashboard' ? (
@@ -107,35 +109,40 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
                 </Link>
               </div>
             </div>
-          ))}
-        </section>
-      </ScrollReveal>
+          </ScrollReveal>
+        ))}
+      </section>
 
       {/* Structured Workflow Section */}
-      <ScrollReveal>
-        <section className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-10">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-2">
-              {t.workflowTitle[validLang]}
-            </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t.workflowSubtitle[validLang]}
-            </p>
-          </div>
+      <section className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-10">
+        <ScrollReveal animation="fade-up" className="max-w-2xl">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-2">
+            {t.workflowTitle[validLang]}
+          </h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            {t.workflowSubtitle[validLang]}
+          </p>
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {workflowSteps.map((step) => (
-              <div key={step.step} className="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-3 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {workflowSteps.map((step, index) => (
+            <ScrollReveal
+              key={step.step}
+              animation="fade-up"
+              delayMs={index * 120}
+              threshold={0.1}
+            >
+              <div className="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-3 relative h-full">
                 <span className="text-3xl font-black text-orange-500/30 font-mono block">
                   0{step.step}
                 </span>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200">{step.title[validLang]}</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{step.description[validLang]}</p>
               </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
       {/* Internship Callout Banner */}
       <ScrollReveal>
