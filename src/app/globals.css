@@ -116,25 +116,145 @@ body {
   animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Scroll Reveal States */
+/* =========================================================================
+   SCROLL REVEAL & TELEMETRY CIRCUIT ANIMATION SYSTEM
+   Provides high-tech, staggered, cinematic scroll transitions
+   ========================================================================= */
+
+.reveal-base {
+  will-change: opacity, transform, filter;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 0.8s;
+  transition-property: opacity, transform, filter;
+}
+
+/* Variant: Fade Up with Depth */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(44px) scale(0.96);
+  filter: blur(8px);
+}
+.reveal-fade-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Variant: Fade Down */
+.reveal-fade-down {
+  opacity: 0;
+  transform: translateY(-36px) scale(0.96);
+  filter: blur(6px);
+}
+.reveal-fade-down.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Variant: Fade In from Left */
+.reveal-fade-left {
+  opacity: 0;
+  transform: translateX(-44px) scale(0.97);
+  filter: blur(8px);
+}
+.reveal-fade-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Variant: Fade In from Right */
+.reveal-fade-right {
+  opacity: 0;
+  transform: translateX(44px) scale(0.97);
+  filter: blur(8px);
+}
+.reveal-fade-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Variant: Scale Up (Pop) */
+.reveal-scale-up {
+  opacity: 0;
+  transform: scale(0.9) translateY(24px);
+  filter: blur(10px);
+}
+.reveal-scale-up.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0px);
+}
+
+/* Variant: Blur In Dissolve */
+.reveal-blur-in {
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(0.98);
+}
+.reveal-blur-in.is-revealed {
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+/* Backward compatibility for previous .reveal-on-scroll */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-
 .reveal-on-scroll.is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Circuit Stream Pulse Beam */
+@keyframes circuitFlow {
+  0% {
+    top: -40%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+.circuit-pulse-beam {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #f97316, #06b6d4, transparent);
+  transform: translateX(-50%);
+  animation: circuitFlow 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .reveal-base,
+  .reveal-fade-up,
+  .reveal-fade-down,
+  .reveal-fade-left,
+  .reveal-fade-right,
+  .reveal-scale-up,
+  .reveal-blur-in,
   .reveal-on-scroll {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     transition: none !important;
   }
+  .circuit-pulse-beam,
   .page-enter-animation {
     animation: none !important;
   }
