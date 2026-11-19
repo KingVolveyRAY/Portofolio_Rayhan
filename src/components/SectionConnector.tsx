@@ -1,14 +1,25 @@
 'use client';
 
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import { Cpu, Layers, Server, Mail, Activity, Sparkles, LucideIcon } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+
+export type SectionIconType = 'cpu' | 'layers' | 'server' | 'mail' | 'activity' | 'sparkles';
+
+const iconMap: Record<SectionIconType, LucideIcon> = {
+  cpu: Cpu,
+  layers: Layers,
+  server: Server,
+  mail: Mail,
+  activity: Activity,
+  sparkles: Sparkles,
+};
 
 interface SectionConnectorProps {
   nodeNumber: string;
   label: string;
   sublabel?: string;
-  icon: LucideIcon;
+  iconName?: SectionIconType;
   variant?: 'orange' | 'cyan' | 'amber';
 }
 
@@ -16,9 +27,10 @@ export function SectionConnector({
   nodeNumber,
   label,
   sublabel,
-  icon: Icon,
+  iconName = 'cpu',
   variant = 'orange',
 }: SectionConnectorProps) {
+  const Icon = iconMap[iconName] || Cpu;
   const isCyan = variant === 'cyan';
   const isAmber = variant === 'amber';
 
