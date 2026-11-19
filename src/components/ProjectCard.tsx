@@ -16,7 +16,10 @@ export function ProjectCard({ project, lang }: ProjectCardProps) {
   const snapshot = githubSnapshot[project.slug];
 
   return (
-    <article className="glass-panel rounded-2xl overflow-hidden p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-xl group">
+    <article className="h-full relative overflow-hidden glass-panel rounded-2xl p-6 flex flex-col justify-between transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 group">
+      {/* Top Border Cyber Accent on Hover */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
       <div>
         {/* Top Header: Category & Status */}
         <div className="flex items-center justify-between gap-2 mb-3">
