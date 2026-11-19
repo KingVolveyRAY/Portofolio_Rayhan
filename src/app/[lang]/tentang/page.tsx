@@ -123,36 +123,45 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillGroups.map((group) => (
-              <div key={group.id} className="glass-panel p-6 rounded-2xl space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center">
-                    {group.id === 'iot-embedded' ? (
-                      <Cpu className="w-4 h-4" />
-                    ) : group.id === 'backend' ? (
-                      <Server className="w-4 h-4" />
-                    ) : group.id === 'database' ? (
-                      <Database className="w-4 h-4" />
-                    ) : group.id === 'frontend' ? (
-                      <Layers className="w-4 h-4" />
-                    ) : (
-                      <Wrench className="w-4 h-4" />
-                    )}
-                  </div>
-                  <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">{group.name[validLang]}</h3>
-                </div>
-
-                <div className="space-y-2">
-                  {group.skills.map((s) => (
-                    <div key={s.name} className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs">
-                      <span className="text-slate-800 dark:text-slate-200 font-medium">{s.name}</span>
-                      <span className="text-[10px] font-mono text-cyan-700 dark:text-cyan-400 bg-cyan-500/10 dark:bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 dark:border-cyan-800/40">
-                        {s.level}
-                      </span>
+            {skillGroups.map((group, index) => (
+              <ScrollReveal
+                key={group.id}
+                animation="fade-up"
+                delayMs={index * 100}
+                threshold={0.1}
+              >
+                <div className="glass-panel p-6 rounded-2xl space-y-4 h-full flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center">
+                        {group.id === 'iot-embedded' ? (
+                          <Cpu className="w-4 h-4" />
+                        ) : group.id === 'backend' ? (
+                          <Server className="w-4 h-4" />
+                        ) : group.id === 'database' ? (
+                          <Database className="w-4 h-4" />
+                        ) : group.id === 'frontend' ? (
+                          <Layers className="w-4 h-4" />
+                        ) : (
+                          <Wrench className="w-4 h-4" />
+                        )}
+                      </div>
+                      <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">{group.name[validLang]}</h3>
                     </div>
-                  ))}
+
+                    <div className="space-y-2">
+                      {group.skills.map((s) => (
+                        <div key={s.name} className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs">
+                          <span className="text-slate-800 dark:text-slate-200 font-medium">{s.name}</span>
+                          <span className="text-[10px] font-mono text-cyan-700 dark:text-cyan-400 bg-cyan-500/10 dark:bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 dark:border-cyan-800/40">
+                            {s.level}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
