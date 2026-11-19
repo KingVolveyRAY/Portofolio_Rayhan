@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Language } from '@/types';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageTransition } from '@/components/PageTransition';
 
 export function generateStaticParams() {
   return [{ lang: 'id' }, { lang: 'en' }];
@@ -34,7 +35,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
 
       {/* Main Content */}
       <main className="flex-1 pt-24 sm:pt-28 pb-12 relative z-10">
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
 
       {/* Bottom Footer */}
