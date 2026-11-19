@@ -256,14 +256,21 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <span>{validLang === 'id' ? 'Sertifikat & Kompetisi Robotika' : 'Certificates & Competitions'}</span>
             </h2>
             <div className="space-y-3">
-              {certItems.map((item) => (
-                <div key={item.id} className="glass-panel p-4 rounded-xl flex items-start justify-between gap-3 text-xs">
-                  <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-slate-200">{item.role[validLang]}</h3>
-                    <p className="text-slate-600 dark:text-slate-400">{item.institution} • {item.description[validLang]}</p>
+              {certItems.map((item, index) => (
+                <ScrollReveal
+                  key={item.id}
+                  animation="fade-up"
+                  delayMs={index * 100}
+                  threshold={0.1}
+                >
+                  <div className="glass-panel p-4 rounded-xl flex items-start justify-between gap-3 text-xs hover:border-amber-500/40 transition-colors">
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-slate-200">{item.role[validLang]}</h3>
+                      <p className="text-slate-600 dark:text-slate-400">{item.institution} • {item.description[validLang]}</p>
+                    </div>
+                    <span className="font-mono text-cyan-700 dark:text-cyan-400 shrink-0 font-medium">{item.period[validLang]}</span>
                   </div>
-                  <span className="font-mono text-cyan-700 dark:text-cyan-400 shrink-0 font-medium">{item.period[validLang]}</span>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
