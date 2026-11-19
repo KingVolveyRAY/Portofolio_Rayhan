@@ -216,7 +216,7 @@ export default async function HomePage({ params }: HomePageProps) {
         nodeNumber="NODE // 02"
         label={validLang === 'id' ? 'Arsitektur & Keahlian' : 'Architecture & Skills'}
         sublabel={validLang === 'id' ? 'Hardware • Backend • Database' : 'Hardware • Backend • Database'}
-        icon={Layers}
+        iconName="layers"
         variant="cyan"
       />
 
