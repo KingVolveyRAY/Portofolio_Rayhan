@@ -45,17 +45,16 @@ export default async function ContactPage({ params }: ContactPageProps) {
         </p>
       </div>
 
-      <ScrollReveal>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Form Column (7 cols) */}
-          <div className="lg:col-span-7">
-            <ContactForm lang={validLang} />
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        {/* Left Form Column (7 cols) */}
+        <ScrollReveal animation="fade-right" className="lg:col-span-7">
+          <ContactForm lang={validLang} />
+        </ScrollReveal>
 
-          {/* Right Info Column (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Direct Channels Card */}
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        {/* Right Info Column (5 cols) */}
+        <ScrollReveal animation="fade-left" delayMs={150} className="lg:col-span-5 space-y-6">
+          {/* Direct Channels Card */}
+          <div className="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
               <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">
                 {t.directContactsTitle[validLang]}
               </h2>
