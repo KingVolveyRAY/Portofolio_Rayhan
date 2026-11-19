@@ -167,7 +167,7 @@ export default async function HomePage({ params }: HomePageProps) {
         nodeNumber="NODE // 01"
         label={validLang === 'id' ? 'Proyek Unggulan' : 'Featured Projects'}
         sublabel={validLang === 'id' ? 'Sensor Fisik ke Telemetri Cloud' : 'Physical Sensor to Cloud Telemetry'}
-        icon={Cpu}
+        iconName="cpu"
         variant="orange"
       />
 
