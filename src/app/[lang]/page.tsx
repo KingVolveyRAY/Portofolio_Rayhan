@@ -344,7 +344,7 @@ export default async function HomePage({ params }: HomePageProps) {
         nodeNumber="NODE // 04"
         label={validLang === 'id' ? 'Inisiasi Kolaborasi' : 'Initiate Collaboration'}
         sublabel={validLang === 'id' ? 'Magang • Freelance • Proyek Robotika' : 'Internship • Freelance • Robotics Projects'}
-        icon={Mail}
+        iconName="mail"
         variant="orange"
       />
 
