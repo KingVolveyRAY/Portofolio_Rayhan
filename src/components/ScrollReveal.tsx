@@ -2,13 +2,31 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
+export type ScrollAnimationType =
+  | 'fade-up'
+  | 'fade-down'
+  | 'fade-left'
+  | 'fade-right'
+  | 'scale-up'
+  | 'blur-in';
+
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  animation?: ScrollAnimationType;
+  threshold?: number;
+  rootMargin?: string;
 }
 
-export function ScrollReveal({ children, className = '', delayMs = 0 }: ScrollRevealProps) {
+export function ScrollReveal({
+  children,
+  className = '',
+  delayMs = 0,
+  animation = 'fade-up',
+  threshold = 0.15,
+  rootMargin = '0px 0px -50px 0px',
+}: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -16,7 +34,7 @@ export function ScrollReveal({ children, className = '', delayMs = 0 }: ScrollRe
     const element = ref.current;
     if (!element) return;
 
-    // If browser doesn't support IntersectionObserver, reveal immediately
+    // Fallback if browser doesn't support IntersectionObserver
     if (!('IntersectionObserver' in window)) {
       setRevealed(true);
       return;
@@ -27,17 +45,21 @@ export function ScrollReveal({ children, className = '', delayMs = 0 }: ScrollRe
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (delayMs > 0) {
-              setTimeout(() => setRevealed(true), delayMs);
+              const timer = setTimeout(() => {
+                setRevealed(true);
+              }, delayMs);
+              observer.unobserve(entry.target);
+              return () => clearTimeout(timer);
             } else {
               setRevealed(true);
+              observer.unobserve(entry.target);
             }
-            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
+        threshold,
+        rootMargin,
       }
     );
 
@@ -46,12 +68,17 @@ export function ScrollReveal({ children, className = '', delayMs = 0 }: ScrollRe
     return () => {
       observer.disconnect();
     };
-  }, [delayMs]);
+  }, [delayMs, threshold, rootMargin]);
+
+  const animationClass = `reveal-${animation}`;
 
   return (
     <div
       ref={ref}
-      className={`reveal-on-scroll ${revealed ? 'is-revealed' : ''} ${className}`}
+      style={{
+        transitionDelay: delayMs > 0 ? `${delayMs}ms` : undefined,
+      }}
+      className={`reveal-base ${animationClass} ${revealed ? 'is-revealed' : ''} ${className}`}
     >
       {children}
     </div>
