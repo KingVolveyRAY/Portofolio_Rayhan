@@ -161,91 +161,95 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* Featured Projects Section (FR-01 & Section 5.2) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-          <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>{validLang === 'id' ? 'Poros IoT Developer' : 'IoT Core Projects'}</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
-              {tFeatured.title[validLang]}
-            </h2>
-            <p className="text-sm text-slate-400 max-w-xl mt-2 leading-relaxed">
-              {tFeatured.subtitle[validLang]}
-            </p>
-          </div>
-
-          <Link
-            href={`/${validLang}/proyek`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group"
-          >
-            <span>{tFeatured.viewAll[validLang]}</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-
-        {/* 3 Featured Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} lang={validLang} />
-          ))}
-        </div>
-      </section>
-
-      {/* Skills & Architecture Overview (FR-05) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
-          <div className="max-w-2xl mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-2">
-              {validLang === 'id' ? 'Keahlian Sistem Dari Sensor ke Dashboard' : 'System Expertise: From Sensor to Dashboard'}
-            </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              {validLang === 'id'
-                ? 'Kemampuan menyeluruh mencakup perakitan perangkat keras, kalibrasi sensor fisik, transmisi telemetri aman, hingga dasbor antarmuka web modern.'
-                : 'Comprehensive capability bridging hardware soldering, analog sensor calibration, secure telemetry pipelines, and modern web application interfaces.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillGroups.slice(0, 3).map((group) => (
-              <div key={group.id} className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
-                    {group.id === 'iot-embedded' ? <Cpu className="w-4 h-4" /> : group.id === 'backend' ? <Server className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
-                  </div>
-                  <h3 className="font-bold text-sm text-slate-200">{group.name[validLang]}</h3>
-                </div>
-
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {group.description[validLang]}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {group.skills.map((s) => (
-                    <span key={s.name} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
-                      {s.name}
-                    </span>
-                  ))}
-                </div>
+      <ScrollReveal>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
+                <Cpu className="w-3.5 h-3.5" />
+                <span>{validLang === 'id' ? 'Poros IoT Developer' : 'IoT Core Projects'}</span>
               </div>
-            ))}
-          </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+                {tFeatured.title[validLang]}
+              </h2>
+              <p className="text-sm text-slate-400 max-w-xl mt-2 leading-relaxed">
+                {tFeatured.subtitle[validLang]}
+              </p>
+            </div>
 
-          <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
-            <span className="text-xs text-slate-400 font-mono">
-              {validLang === 'id' ? 'Setiap keahlian dibuktikan melalui kode di repositori publik' : 'Each capability is verified by code in public repositories'}
-            </span>
             <Link
-              href={`/${validLang}/tentang`}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+              href={`/${validLang}/proyek`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group"
             >
-              <span>{validLang === 'id' ? 'Lihat Matriks Keahlian Lengkap' : 'View Full Skills Matrix'}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>{tFeatured.viewAll[validLang]}</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-        </div>
-      </section>
+
+          {/* 3 Featured Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} lang={validLang} />
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Skills & Architecture Overview (FR-05) */}
+      <ScrollReveal>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
+            <div className="max-w-2xl mb-8">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-2">
+                {validLang === 'id' ? 'Keahlian Sistem Dari Sensor ke Dashboard' : 'System Expertise: From Sensor to Dashboard'}
+              </h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                {validLang === 'id'
+                  ? 'Kemampuan menyeluruh mencakup perakitan perangkat keras, kalibrasi sensor fisik, transmisi telemetri aman, hingga dasbor antarmuka web modern.'
+                  : 'Comprehensive capability bridging hardware soldering, analog sensor calibration, secure telemetry pipelines, and modern web application interfaces.'}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillGroups.slice(0, 3).map((group) => (
+                <div key={group.id} className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
+                      {group.id === 'iot-embedded' ? <Cpu className="w-4 h-4" /> : group.id === 'backend' ? <Server className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
+                    </div>
+                    <h3 className="font-bold text-sm text-slate-200">{group.name[validLang]}</h3>
+                  </div>
+
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {group.description[validLang]}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {group.skills.map((s) => (
+                      <span key={s.name} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
+                        {s.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+              <span className="text-xs text-slate-400 font-mono">
+                {validLang === 'id' ? 'Setiap keahlian dibuktikan melalui kode di repositori publik' : 'Each capability is verified by code in public repositories'}
+              </span>
+              <Link
+                href={`/${validLang}/tentang`}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+              >
+                <span>{validLang === 'id' ? 'Lihat Matriks Keahlian Lengkap' : 'View Full Skills Matrix'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Services Preview (FR-07) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
