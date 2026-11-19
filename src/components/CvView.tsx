@@ -273,11 +273,11 @@ export function CvView({ lang }: CvViewProps) {
             {lang === 'id' ? 'Sertifikasi & Kompetisi Robotika' : 'Certifications & Competitions'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 print:text-slate-700">
+            <p>• 🏆 Silver Medal: AI Robot Challenge Korea / ARCK (2024)</p>
+            <p>• 🏆 Bronze Medal: International Youth Metaverse Robot Challenge / IYMRC (2024)</p>
+            <p>• 🏆 Juara Harapan 1: Kontes Robot Nusantara / KRON (2023)</p>
             <p>• GDGoC AI/ML Weekly Class (2025)</p>
             <p>• GDGoC Product Manager Workshop (2025)</p>
-            <p>• Asian Robotic Competition for Kids / ARCK (2024)</p>
-            <p>• International Youth Metaverse Robot Challenge / IYMRC (2024)</p>
-            <p>• Kontes Robot Nusantara / KRON (2023)</p>
           </div>
         </section>
       </div>
