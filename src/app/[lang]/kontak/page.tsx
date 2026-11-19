@@ -144,8 +144,8 @@ export default async function ContactPage({ params }: ContactPageProps) {
               </Link>
             </div>
           </div>
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
     </div>
   );
 }
