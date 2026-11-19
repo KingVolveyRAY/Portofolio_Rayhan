@@ -123,10 +123,10 @@ Berikut adalah beberapa sistem rekayasa terpilih yang telah dibangun dan terdoku
 - **Head of IMALA** di *Ikatan Mahasiswa Lebak* (03/2025 - 03/2026)  
   *Memimpin organisasi kedaerahan dalam kegiatan sosial dan literasi digital pemuda.*
 
-### Prestasi & Partisipasi Kompetisi Robotika:
-- 🏆 Peserta *Asian Robotic Competition for Kids (ARCK)* (2024)
-- 🏆 Peserta *International Youth Metaverse Robot Challenge (IYMRC)* (2024)
-- 🏆 Peserta *Kontes Robot Nusantara (KRON)* (2023)
+### Prestasi & Kompetisi Robotika:
+- 🏆 **Silver Medal**: *AI Robot Challenge Korea (ARCK)* (2024)
+- 🏆 **Bronze Medal**: *International Youth Metaverse Robot Challenge (IYMRC)* (2024)
+- 🏆 **Juara Harapan 1**: *Kontes Robot Nusantara (KRON)* (2023)
 - 🎓 Peserta *GDGoC AI/ML Weekly Class* (2025)
 - 🎓 Peserta *GDGoC Product Manager Workshop* (2025)
 
