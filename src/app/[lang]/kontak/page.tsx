@@ -143,9 +143,8 @@ export default async function ContactPage({ params }: ContactPageProps) {
                 <span>{validLang === 'id' ? 'Buka CV' : 'Open CV'}</span>
               </Link>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
