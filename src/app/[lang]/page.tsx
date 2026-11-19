@@ -7,6 +7,7 @@ import { projects } from '@/data/projects';
 import { skillGroups } from '@/data/skills';
 import { services } from '@/data/services';
 import { ProjectCard } from '@/components/ProjectCard';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { translations } from '@/lib/translations';
 import {
   ArrowRight,
