@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync": "node scripts/auto-push.mjs",
+    "push": "git add . && git commit -m \"chore: update portfolio\" && git push origin main"
   },
   "dependencies": {
     "lucide-react": "^1.75.0",
