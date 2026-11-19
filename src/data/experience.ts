@@ -168,26 +168,26 @@ export const timelineItems: TimelineItem[] = [
   {
     id: 'comp-arck',
     role: {
-      id: 'Peserta Kompetisi Robotika Internasional ARCK',
-      en: 'Participant Asian Robotic Competition for Kids (ARCK)',
+      id: 'Silver Medal AI Robot Challenge Korea (ARCK)',
+      en: 'Silver Medalist, AI Robot Challenge Korea (ARCK)',
     },
-    institution: 'Asian Robotic Competition for Kids',
+    institution: 'AI Robot Challenge Korea',
     period: {
       id: '2024',
       en: '2024',
     },
     type: 'certificate',
     description: {
-      id: 'Kompetisi robotika tingkat Asia dengan tantangan pemrograman robot navigasi dan otomasi mekanik presisi.',
-      en: 'Pan-Asian competitive robotics tournament focusing on navigational programming and precision electro-mechanical automation.',
+      id: 'Meraih medali perak dalam kompetisi robotika internasional AI Robot Challenge Korea.',
+      en: 'Won Silver Medal in the international AI Robot Challenge Korea robotics tournament.',
     },
-    tags: ['International Competition', 'Robotics', 'Autonomous Navigation'],
+    tags: ['International Competition', 'Silver Medal', 'Robotics', 'Autonomous Navigation'],
   },
   {
     id: 'comp-iymrc',
     role: {
-      id: 'Peserta IYMRC',
-      en: 'Participant IYMRC',
+      id: 'Bronze Medal International Youth Metaverse Robot Challenge (IYMRC)',
+      en: 'Bronze Medalist, International Youth Metaverse Robot Challenge (IYMRC)',
     },
     institution: 'International Youth Metaverse Robot Challenge',
     period: {
@@ -196,16 +196,16 @@ export const timelineItems: TimelineItem[] = [
     },
     type: 'certificate',
     description: {
-      id: 'Kompetisi tantangan inovasi robotika dan integrasi teknologi digital pemuda internasional.',
-      en: 'International youth tournament spotlighting innovative robotics problem solving and digital systems integration.',
+      id: 'Meraih medali perunggu dalam kompetisi inovasi robotika pemuda internasional IYMRC.',
+      en: 'Won Bronze Medal in the international youth robotics and metaverse challenge tournament.',
     },
-    tags: ['IYMRC', 'Robotics Challenge', 'Innovation'],
+    tags: ['International Competition', 'Bronze Medal', 'Robotics Challenge', 'Innovation'],
   },
   {
     id: 'comp-kron',
     role: {
-      id: 'Peserta Kontes Robot Nusantara (KRON)',
-      en: 'Participant Kontes Robot Nusantara (KRON)',
+      id: 'Juara Harapan 1 Kontes Robot Nusantara (KRON)',
+      en: '1st Consolation Prize (Harapan 1), Kontes Robot Nusantara (KRON)',
     },
     institution: 'Kontes Robot Nusantara',
     period: {
@@ -214,9 +214,9 @@ export const timelineItems: TimelineItem[] = [
     },
     type: 'certificate',
     description: {
-      id: 'Ajang kompetisi robotika nasional yang menguji ketangguhan desain sirkuit mikrokontroler dan algoritma manuver sensor.',
-      en: 'National robotics tournament assessing microcontroller circuitry resilience and sensor maneuvering algorithms.',
+      id: 'Meraih Juara Harapan 1 pada ajang kompetisi robotika tingkat nasional Kontes Robot Nusantara.',
+      en: 'Won 1st Consolation Prize (Harapan 1) in the national level robotics tournament Kontes Robot Nusantara.',
     },
-    tags: ['National Competition', 'Hardware Reliability', 'Circuit Engineering'],
+    tags: ['National Competition', 'Juara Harapan 1', 'Hardware Reliability', 'Circuit Engineering'],
   },
 ];
