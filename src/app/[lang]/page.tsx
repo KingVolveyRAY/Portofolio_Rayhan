@@ -55,26 +55,26 @@ export default async function HomePage({ params }: HomePageProps) {
           {/* Left Text Column */}
           <ScrollReveal animation="fade-right" className="lg:col-span-7 space-y-6">
             {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-medium text-slate-200 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/90 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-700/80 text-xs font-medium text-slate-800 dark:text-slate-200 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>{tHero.badge[validLang]}</span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-2">
-              <p className="text-sm sm:text-base font-semibold text-orange-400 tracking-wide uppercase">
+              <p className="text-sm sm:text-base font-semibold text-orange-500 dark:text-orange-400 tracking-wide uppercase">
                 {tHero.greeting[validLang]}
               </p>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-100 leading-[1.1]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 leading-[1.1]">
                 Muhammad Rayhan <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Ramadhan</span>
               </h1>
-              <p className="text-xl sm:text-2xl font-bold text-slate-300 pt-1">
+              <p className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-300 pt-1">
                 {tHero.tagline[validLang]}
               </p>
             </div>
 
             {/* Value Proposition Paragraph */}
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
               {tHero.description[validLang]}
             </p>
 
@@ -90,28 +90,28 @@ export default async function HomePage({ params }: HomePageProps) {
 
               <Link
                 href={`/${validLang}/cv`}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 hover:border-slate-600 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-slate-200/90 dark:bg-slate-900/80 hover:bg-slate-300 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700/80 hover:border-slate-400 dark:hover:border-slate-600 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
               >
-                <FileText className="w-4 h-4 text-cyan-400" />
+                <FileText className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>{tHero.ctaCv[validLang]}</span>
               </Link>
 
               <Link
                 href={`/${validLang}/kontak`}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-slate-900/40 hover:bg-slate-800/60 text-slate-300 hover:text-white border border-slate-800 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-slate-100 dark:bg-slate-900/40 hover:bg-slate-200 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white border border-slate-300 dark:border-slate-800 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
               >
-                <Mail className="w-4 h-4 text-orange-400" />
+                <Mail className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                 <span>{tHero.ctaContact[validLang]}</span>
               </Link>
             </div>
 
             {/* Telemetry Indicator Pill */}
-            <div className="pt-3 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+            <div className="pt-3 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-cyan-400" />
+                <Activity className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{tHero.statusOnline[validLang]}</span>
               </div>
-              <span className="text-slate-600">•</span>
+              <span className="text-slate-400 dark:text-slate-600">•</span>
               <div>{tHero.statusLocation[validLang]}</div>
             </div>
           </ScrollReveal>
@@ -122,9 +122,9 @@ export default async function HomePage({ params }: HomePageProps) {
               {/* Decorative Glass Backdrop */}
               <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-cyan-500/20 rounded-3xl blur-2xl -z-10" />
 
-              <div className="glass-panel p-4 rounded-3xl border border-slate-700/60 shadow-2xl space-y-4">
+              <div className="glass-panel p-4 rounded-3xl border border-slate-300 dark:border-slate-700/60 shadow-2xl space-y-4">
                 {/* Photo with rounded frame */}
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-950">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-700/60 bg-slate-950">
                   <Image
                     src="/images/rayhan.jpg"
                     alt="Muhammad Rayhan Ramadhan - IoT Developer"
@@ -136,24 +136,24 @@ export default async function HomePage({ params }: HomePageProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
 
                   {/* Microcontroller Specs Overlay Badge */}
-                  <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/80 flex items-center justify-between text-xs font-mono">
+                  <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-300 dark:border-slate-700/80 flex items-center justify-between text-xs font-mono">
                     <div className="flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-cyan-400" />
-                      <span className="text-slate-200">ESP32 • FreeRTOS</span>
+                      <Cpu className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                      <span className="text-slate-800 dark:text-slate-200">ESP32 • FreeRTOS</span>
                     </div>
-                    <span className="text-emerald-400 font-semibold">97% Calibrated</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold">97% Calibrated</span>
                   </div>
                 </div>
 
                 {/* Sub-card highlights */}
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                    <span className="text-slate-500 block font-mono text-[10px] uppercase">Fokus Studi</span>
-                    <span className="font-semibold text-slate-200">Teknik Informatika UIN</span>
+                  <div className="p-3 rounded-xl bg-slate-100/90 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                    <span className="text-slate-500 dark:text-slate-400 block font-mono text-[10px] uppercase">Fokus Studi</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">Teknik Informatika UIN</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                    <span className="text-slate-500 block font-mono text-[10px] uppercase">Pengalaman Mengajar</span>
-                    <span className="font-semibold text-slate-200">Scitech Academy</span>
+                  <div className="p-3 rounded-xl bg-slate-100/90 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                    <span className="text-slate-500 dark:text-slate-400 block font-mono text-[10px] uppercase">Pengalaman Mengajar</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">Scitech Academy</span>
                   </div>
                 </div>
               </div>
@@ -175,21 +175,21 @@ export default async function HomePage({ params }: HomePageProps) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade-up" className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-400 mb-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-500 dark:text-orange-400 mb-2">
               <Cpu className="w-3.5 h-3.5" />
               <span>{validLang === 'id' ? 'Poros IoT Developer' : 'IoT Core Projects'}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
               {tFeatured.title[validLang]}
             </h2>
-            <p className="text-sm text-slate-400 max-w-xl mt-2 leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xl mt-2 leading-relaxed">
               {tFeatured.subtitle[validLang]}
             </p>
           </div>
 
           <Link
             href={`/${validLang}/proyek`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-500 dark:hover:text-orange-300 transition-colors group"
           >
             <span>{tFeatured.viewAll[validLang]}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -222,12 +222,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* Skills & Architecture Overview (FR-05) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
+        <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 relative overflow-hidden">
           <ScrollReveal animation="fade-up" className="max-w-2xl mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 mb-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-2">
               {validLang === 'id' ? 'Keahlian Sistem Dari Sensor ke Dashboard' : 'System Expertise: From Sensor to Dashboard'}
             </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               {validLang === 'id'
                 ? 'Kemampuan menyeluruh mencakup perakitan perangkat keras, kalibrasi sensor fisik, transmisi telemetri aman, hingga dasbor antarmuka web modern.'
                 : 'Comprehensive capability bridging hardware soldering, analog sensor calibration, secure telemetry pipelines, and modern web application interfaces.'}
@@ -243,23 +243,23 @@ export default async function HomePage({ params }: HomePageProps) {
                 delayMs={index * 140}
                 threshold={0.1}
               >
-                <div className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 h-full flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
+                <div className="p-5 rounded-2xl bg-slate-100/90 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-3 h-full flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 flex items-center justify-center">
                         {group.id === 'iot-embedded' ? <Cpu className="w-4 h-4" /> : group.id === 'backend' ? <Server className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
                       </div>
-                      <h3 className="font-bold text-sm text-slate-200">{group.name[validLang]}</h3>
+                      <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">{group.name[validLang]}</h3>
                     </div>
 
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       {group.description[validLang]}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/60">
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800/60">
                     {group.skills.map((s) => (
-                      <span key={s.name} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
+                      <span key={s.name} className="text-[11px] px-2 py-0.5 rounded bg-slate-200/90 dark:bg-slate-800 text-slate-800 dark:text-slate-300 font-mono">
                         {s.name}
                       </span>
                     ))}
@@ -269,13 +269,13 @@ export default async function HomePage({ params }: HomePageProps) {
             ))}
           </div>
 
-          <ScrollReveal animation="fade-up" delayMs={300} className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
-            <span className="text-xs text-slate-400 font-mono">
+          <ScrollReveal animation="fade-up" delayMs={300} className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">
               {validLang === 'id' ? 'Setiap keahlian dibuktikan melalui kode di repositori publik' : 'Each capability is verified by code in public repositories'}
             </span>
             <Link
               href={`/${validLang}/tentang`}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-500 dark:hover:text-orange-300 transition-colors"
             >
               <span>{validLang === 'id' ? 'Lihat Matriks Keahlian Lengkap' : 'View Full Skills Matrix'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -296,10 +296,10 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Services Preview (FR-07) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
             {validLang === 'id' ? 'Layanan Freelance & Kemitraan' : 'Freelance Services & Partnerships'}
           </h2>
-          <p className="text-sm text-slate-400 leading-relaxed">
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
             {validLang === 'id'
               ? 'Tiga layanan terfokus yang siap dieksekusi dengan standar kualitas rekayasa teruji.'
               : 'Three targeted offerings ready for deployment with engineering rigor.'}
@@ -317,17 +317,17 @@ export default async function HomePage({ params }: HomePageProps) {
             >
               <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-all h-full">
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
                     {service.id === 'iot-dashboard' ? <Cpu className="w-5 h-5" /> : service.id === 'web-backend' ? <Server className="w-5 h-5" /> : <GraduationCap className="w-5 h-5" />}
                   </div>
-                  <h3 className="text-base font-bold text-slate-100">{service.title[validLang]}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{service.tagline[validLang]}</p>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">{service.title[validLang]}</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{service.tagline[validLang]}</p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800/80">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-800/80">
                   <Link
                     href={`/${validLang}/layanan`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 dark:text-orange-400 hover:text-orange-500 dark:hover:text-orange-300 transition-colors"
                   >
                     <span>{validLang === 'id' ? 'Pelajari Rincian & Alur Kerja' : 'Explore Deliverables & Workflow'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -353,10 +353,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <ScrollReveal animation="scale-up" delayMs={100} threshold={0.15}>
           <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-orange-500/30 text-center space-y-6 relative overflow-hidden bg-gradient-to-b from-orange-500/10 to-transparent">
             <div className="max-w-xl mx-auto space-y-3">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
                 {validLang === 'id' ? 'Siap Membangun Sistem Bersama?' : 'Ready to Build Reliable Systems Together?'}
               </h2>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 {validLang === 'id'
                   ? 'Terbuka untuk peluang magang sebagai IoT Developer / Backend Engineer, serta proyek freelance dan workshop pelatihan robotika.'
                   : 'Open for internship placements in IoT Development and Backend Engineering, as well as freelance projects and robotics workshops.'}
@@ -374,9 +374,9 @@ export default async function HomePage({ params }: HomePageProps) {
 
               <Link
                 href={`/${validLang}/cv`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-slate-200/90 dark:bg-slate-900/80 hover:bg-slate-300 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700/80 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
               >
-                <FileText className="w-4 h-4 text-cyan-400" />
+                <FileText className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>{validLang === 'id' ? 'Tinjau Curriculum Vitae' : 'Review Curriculum Vitae'}</span>
               </Link>
             </div>
