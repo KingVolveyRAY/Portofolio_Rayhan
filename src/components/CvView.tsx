@@ -58,8 +58,8 @@ export function CvView({ lang }: CvViewProps) {
               </p>
               <p className="flex items-center sm:justify-end gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-                <a href="mailto:rayhanramadhan.official@gmail.com" className="hover:underline">
-                  rayhanramadhan.official@gmail.com
+                <a href="mailto:rayhanramadan402@gmail.com" className="hover:underline">
+                  rayhanramadan402@gmail.com
                 </a>
               </p>
               <p className="flex items-center sm:justify-end gap-1.5">
