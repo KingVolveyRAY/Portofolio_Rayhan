@@ -354,20 +354,31 @@ html.light {
   color: #0f172a;
 }
 
-html.light .text-slate-100,
-html.light .text-slate-200 {
+html.light body {
+  color: #0f172a;
+}
+
+/* Ensure headings & body paragraphs adjust with high contrast in light mode,
+   without breaking white labels on solid gradient or colored buttons */
+html.light h1.text-slate-100,
+html.light h2.text-slate-100,
+html.light h3.text-slate-100,
+html.light h4.text-slate-100,
+html.light p.text-slate-100,
+html.light span.text-slate-100:not([class*="from-"]):not([class*="bg-orange"]):not([class*="bg-cyan"]),
+html.light .text-slate-200:not([class*="from-"]):not([class*="bg-orange"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]) {
   color: #0f172a !important;
 }
 
-html.light .text-slate-300 {
+html.light .text-slate-300:not([class*="from-"]):not([class*="bg-orange"]):not([class*="bg-cyan"]) {
   color: #334155 !important;
 }
 
-html.light .text-slate-400 {
+html.light .text-slate-400:not([class*="from-"]):not([class*="bg-orange"]):not([class*="bg-cyan"]) {
   color: #475569 !important;
 }
 
-html.light .text-slate-500 {
+html.light .text-slate-500:not([class*="from-"]):not([class*="bg-orange"]):not([class*="bg-cyan"]) {
   color: #64748b !important;
 }
 
@@ -380,7 +391,7 @@ html.light .border-slate-700\/80,
 html.light .border-slate-700\/70,
 html.light .border-slate-700\/60,
 html.light .border-slate-700\/50 {
-  border-color: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
 }
 
 html.light input::placeholder,
