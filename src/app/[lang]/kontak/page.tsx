@@ -13,7 +13,7 @@ import {
   ExternalLink,
   MessageSquare,
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '@/components/Icons';
+import { GithubIcon, LinkedinIcon, WhatsAppIcon } from '@/components/Icons';
 
 interface ContactPageProps {
   params: Promise<{ lang: string }>;
@@ -72,6 +72,24 @@ export default async function ContactPage({ params }: ContactPageProps) {
                       <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-mono">Email Resmi</span>
                       <span className="font-semibold truncate block">{t.emailAddress}</span>
                     </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || translations.contactPage.whatsappNumber || '62895333333333').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Halo Rayhan, saya ingin mendiskusikan peluang kolaborasi / proyek.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-slate-200/60 dark:hover:bg-slate-900 transition-all text-slate-800 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <WhatsAppIcon className="w-4 h-4 fill-current" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-mono">WhatsApp (Respon Cepat)</span>
+                      <span className="font-semibold truncate block">Chat WhatsApp Langsung</span>
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600 group-hover:text-emerald-500 ml-auto shrink-0" />
                   </a>
                 </li>
 
