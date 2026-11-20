@@ -103,7 +103,7 @@ export function Navbar({ lang }: NavbarProps) {
                   className={`p-2 sm:p-2.5 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                     active
                       ? 'bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-sm'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/50'
+                      : 'text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200/70 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
@@ -117,7 +117,7 @@ export function Navbar({ lang }: NavbarProps) {
             {/* Theme Toggle (Circular Button like Reference) */}
             <button
               onClick={toggleTheme}
-              className="p-2 sm:p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-200/60 dark:bg-slate-800/40 hover:bg-slate-300/60 dark:hover:bg-slate-700/50 border border-slate-300 dark:border-slate-700/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
+              className="p-2 sm:p-2.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white bg-slate-200/70 dark:bg-slate-800/60 hover:bg-slate-300/80 dark:hover:bg-slate-700/60 border border-slate-300 dark:border-slate-700/60 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               title={`Ubah ke Mode ${theme === 'dark' ? 'Terang' : 'Gelap'}`}
             >
@@ -131,7 +131,7 @@ export function Navbar({ lang }: NavbarProps) {
             {/* Circular Language/Avatar Badge (Matches RT circle in Reference) */}
             <button
               onClick={handleLanguageSwitch}
-              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-extrabold text-[11px] sm:text-xs flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+              className="dock-lang-badge w-7 h-7 sm:w-8 sm:h-8 rounded-full font-extrabold text-[11px] sm:text-xs flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
               aria-label={`Switch language to ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
               title={`Ganti Bahasa ke ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
             >
@@ -141,7 +141,7 @@ export function Navbar({ lang }: NavbarProps) {
             {/* CV Download / Export Action Icon */}
             <Link
               href={`/${lang}/cv`}
-              className="p-2 sm:p-2.5 rounded-full text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-500/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              className="p-2 sm:p-2.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-500/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
               title={t.downloadCv[lang]}
               aria-label={t.downloadCv[lang]}
             >
