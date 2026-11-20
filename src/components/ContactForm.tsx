@@ -15,7 +15,7 @@ export function ContactForm({ lang }: ContactFormProps) {
   const whatsappNumber =
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
     translations.contactPage.whatsappNumber ||
-    '62895333333333';
+    '6285776418145';
   const targetEmail =
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ||
     translations.contactPage.emailAddress;
