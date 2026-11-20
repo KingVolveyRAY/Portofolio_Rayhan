@@ -15,10 +15,10 @@ export function Footer({ lang }: FooterProps) {
   const currentYear = 2026;
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/90 dark:bg-slate-950/70 pt-16 pb-12 mt-24 relative overflow-hidden transition-colors">
+    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/90 dark:bg-slate-950/70 pt-12 sm:pt-16 pb-10 sm:pb-12 mt-12 sm:mt-16 relative overflow-hidden transition-colors">
       {/* Subtle background glow */}
-      <div className="glow-orb-orange -bottom-24 -left-24 w-96 h-96 opacity-20" />
-      <div className="glow-orb-cyan -bottom-24 -right-24 w-96 h-96 opacity-20" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 glow-orb-orange opacity-20 pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 glow-orb-cyan opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
