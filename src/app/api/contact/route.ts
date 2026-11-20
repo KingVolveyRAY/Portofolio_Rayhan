@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: 'Pesan wajib diisi minimal 10 karakter.' }, { status: 400 });
     }
 
-    const recipient = process.env.CONTACT_EMAIL || 'rayhanramadhan.official@gmail.com';
+    const recipient = process.env.CONTACT_EMAIL || 'rayhanramadan402@gmail.com';
     const timestamp = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
     const purposeMap: Record<string, string> = {
