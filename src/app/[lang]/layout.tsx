@@ -25,10 +25,17 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
 
   return (
     <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden">
-      {/* Background Ambient Glow Elements */}
-      <div className="fixed top-0 left-1/4 w-[500px] h-[500px] glow-orb-orange -translate-y-1/2 -translate-x-1/2 opacity-30 pointer-events-none" />
-      <div className="fixed top-1/3 right-0 w-[600px] h-[600px] glow-orb-cyan translate-x-1/3 opacity-25 pointer-events-none" />
-      <div className="fixed bottom-10 left-10 w-[450px] h-[450px] glow-orb-orange opacity-20 pointer-events-none" />
+      {/* High-End Ambient Mesh & Aurora Gradients for True Glass Refraction */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        {/* Subtle Cyber Grid Matrix */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_70%,transparent_100%)] opacity-35 dark:opacity-25" />
+
+        {/* Luminous Glowing Blobs */}
+        <div className="absolute -top-32 left-[15%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-orange-500/30 via-amber-500/20 to-transparent blur-[120px] dark:opacity-80 opacity-55 animate-pulse duration-[7000ms]" />
+        <div className="absolute top-[25%] -right-24 w-[650px] h-[650px] rounded-full bg-gradient-to-bl from-cyan-500/30 via-blue-600/20 to-transparent blur-[130px] dark:opacity-75 opacity-50" />
+        <div className="absolute top-[55%] -left-28 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-amber-600/25 via-orange-500/20 to-transparent blur-[125px] dark:opacity-70 opacity-45" />
+        <div className="absolute -bottom-24 right-[15%] w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-cyan-600/30 via-emerald-500/20 to-transparent blur-[140px] dark:opacity-75 opacity-50" />
+      </div>
 
       {/* Top Navbar */}
       <Navbar lang={validLang} />
