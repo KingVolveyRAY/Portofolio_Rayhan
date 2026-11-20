@@ -114,7 +114,7 @@ export function Footer({ lang }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="mailto:rayhanramadhan.official@gmail.com"
+                  href="mailto:rayhanramadan402@gmail.com"
                   className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors group"
                 >
                   <Mail className="w-4 h-4 text-slate-700 dark:text-slate-300 group-hover:text-amber-500" />
