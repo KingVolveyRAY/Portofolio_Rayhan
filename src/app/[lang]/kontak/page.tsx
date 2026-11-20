@@ -77,7 +77,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
 
                 <li>
                   <a
-                    href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || translations.contactPage.whatsappNumber || '62895333333333').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Halo Rayhan, saya ingin mendiskusikan peluang kolaborasi / proyek.')}`}
+                    href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || translations.contactPage.whatsappNumber || '6285776418145').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Halo Rayhan, saya ingin mendiskusikan peluang kolaborasi / proyek.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-slate-200/60 dark:hover:bg-slate-900 transition-all text-slate-800 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white group"
