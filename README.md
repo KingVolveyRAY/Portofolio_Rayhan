@@ -175,7 +175,8 @@ Berikut adalah beberapa sistem rekayasa terpilih yang telah dibangun dan terdoku
 
 Tertarik mendiskusikan peluang **magang (internship)**, kolaborasi proyek freelance, atau workshop robotika? Hubungi saya melalui saluran berikut:
 
-- 📧 **Email**: [rayhanramadhan.official@gmail.com](mailto:rayhanramadhan.official@gmail.com)
+- 📧 **Email**: [rayhanramadan402@gmail.com](mailto:rayhanramadan402@gmail.com)
+- 💬 **WhatsApp**: [+62 857-7641-8145](https://wa.me/6285776418145)
 - 🐙 **GitHub**: [github.com/KingVolveyRAY](https://github.com/KingVolveyRAY)
 - 💼 **LinkedIn**: [linkedin.com/in/muhammad-rayhan-ramadhan](https://linkedin.com/in/muhammad-rayhan-ramadhan)
 - 📍 **Lokasi**: Jakarta / Tangerang Selatan, Banten, Indonesia
